@@ -1,0 +1,7 @@
+select 
+NPERS,
+ID_NVP,
+REGION,
+REASON
+ from  <DB_SCHEMA>.FRLLO_FBDP_ERRORS
+ 

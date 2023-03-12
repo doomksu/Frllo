@@ -1,0 +1,1 @@
+select distinct npers from <DB_SCHEMA>.FRLLO_PERSONS2 with ur

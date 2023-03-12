@@ -1,0 +1,66 @@
+EXPORT TO "C:\Export\frllo" OF DEL MODIFIED BY CHARDEL"" COLDEL; MESSAGES "C:\Export\m_mes" 
+select 
+man.Npers,
+man.id,
+man.FA,
+man.IM,
+man.OT,
+cast(man.Rdat as varchar(255)),
+man.Pol,
+man.REG_IND,
+man.REG_RE,
+man.REG_RA,
+man.REG_GOROD,
+man.REG_PUNKT,
+man.REG_UL,
+man.REG_DOM,
+man.REG_KOR,
+man.REG_KVA,
+man.FAKT_RE,
+man.FAKT_RA,
+man.FAKT_GOROD,
+man.FAKT_PUNKT,
+man.FAKT_UL,
+man.FAKT_DOM,
+man.FAKT_KOR,
+man.FAKT_KVA,
+man.KDOK,
+man.PASS,
+man.PASN,
+cast(man.PAS_DAT as varchar(255)),
+man.PAS_KEM,
+man.GRAJDAN,
+GSP.VREG,
+RASGSP.L1,
+RASGSP.L2,
+RASGSP.NSU1,
+cast(gsp.SROKS as varchar(255)),
+cast(case when rasgsp.SROKPO>'2050-01-01' then null else rasgsp.SROKPO end as varchar(255)),
+man.re,
+man.ra
+
+
+     FROM CHANGES.gsp AS gsp
+    , CHANGES.RASGSP AS RASGSP
+    ,changes.man man
+  WHERE GSP.id = RASGSP.id AND GSP.changedate = RASGSP.changedate AND GSP.dat = RASGSP.dat
+      and man.id=gsp.id and man.CHANGEDATE=gsp.CHANGEDATE
+      and GSP.CHANGEDATE = (select max(CHANGEDATE) from changes.man man where man.id=gsp.id) --берем последний исторический слой
+      AND (gsp.pgp IS NULL OR gsp.pgp = 1) -- берем обращения с признаком готовности
+      AND rasgsp.sroks =(select max(sroks) from changes.rasgsp rasgsp2
+                          where rasgsp.id = rasgsp2.ID
+                                 and rasgsp.CHANGEDATE = rasgsp2.CHANGEDATE
+                                 and rasgsp2.sroks<sysdate
+                         ) 
+      AND (RASgsp.srokpo IS NULL OR RASgsp.srokpo >= sysdate) 
+      and rasgsp.dat=(select max(dat) from changes.rasgsp rasgsp2 
+                         where rasgsp2.id=rasgsp.id and rasgsp2.changedate = rasgsp.CHANGEDATE and rasgsp2.SROKS=rasgsp.SROKS ) -- если на один период было 2 расчета берем последний
+      AND (RASgsp.oper not in ('ПРЕ','СНЯ') OR RASgsp.oper IS NULL) -- не берем прекращенные, приостановленные и снятые
+      and (man.pw=0 or man.pw is null or (man.DPW>sysdate and man.pw not in (2,50)))
+      and (select count(*) from loads.LOADMAN where loads.LOADMAN.id=man.id
+            and LOADTIME>='2020-11-01' --дата начала изменений
+            and LOADTIME<'2020-11-02'  --дата окончания изменений
+               )>0
+  --   group by gsp.id
+   --  having count(*)>1
+  with ur

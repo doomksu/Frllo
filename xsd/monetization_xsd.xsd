@@ -1,0 +1,80 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="info_sys_code" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="documents" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="document" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="document_id" minOccurs="1" maxOccurs="1"/>
+                    <xs:element type="xs:dateTime" name="doc_date_time" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="citizen" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="register_id" minOccurs="0" maxOccurs="1"/>
+                          <xs:element type="xs:string" name="ext_citizen_id" minOccurs="0" maxOccurs="1"/>
+                          <xs:element type="xs:string" name="name" minOccurs="0" maxOccurs="1"/>
+                          <xs:element type="xs:string" name="surname" minOccurs="0" maxOccurs="1"/>
+                          <xs:element type="xs:string" name="patronymic" minOccurs="0" maxOccurs="1"/>
+                          <xs:element type="xs:string" name="firstsurname" minOccurs="0" maxOccurs="1"/>
+                          <xs:element type="xs:date" name="birthdate" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="sex">
+                          <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1"/>
+                                    <xs:enumeration value="2"/>
+                                    <xs:enumeration value="3"/>
+                                </xs:restriction>
+                          </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="snils" minOccurs="0" maxOccurs="1"/>
+                          <xs:element type="xs:string" name="policy_sn" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="identify_docs" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="doc" minOccurs="1" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="doc_type" minOccurs="1" maxOccurs="1"/>
+                                      <xs:element type="xs:string" name="serial" minOccurs="0" maxOccurs="1"/>
+                                      <xs:element type="xs:string" name="num" minOccurs="1" maxOccurs="1"/>
+                                      <xs:element type="xs:date" name="date_issue" minOccurs="1" maxOccurs="1"/>
+                                      <xs:element type="xs:string" name="authority" minOccurs="0" maxOccurs="1"/>
+                                      <xs:element type="xs:date" name="date_expiry" minOccurs="0" maxOccurs="1"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="region" minOccurs="1" maxOccurs="1"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="monetizations" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="monetization" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:date" name="start_date" minOccurs="1" maxOccurs="1"/>
+                                <xs:element type="xs:date" name="end_date" minOccurs="0" maxOccurs="1"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

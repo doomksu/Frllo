@@ -1,0 +1,1 @@
+SELECT * from NATA.frllo_load_files

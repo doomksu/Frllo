@@ -1,0 +1,15 @@
+ext_benefit_cod;benefit
+birthdate;rdat
+sex;sex
+citizenship;citizenship
+num;docnumber
+doc_type;doctype
+receive_date;receive_date
+patronymic;ot
+serial;serial
+surname;fa
+name;im
+cancel_date;cancel_date
+ext_citizen_id;nvp_id
+region;region
+date_issue;issue
