@@ -96,9 +96,11 @@ public class ConnectionService {
                     LoggingService.writeLogIfDummy(PRINT_CREATE_TABLE_STAMNETS, query, "debug");
                     st.executeUpdate(query);
                 } catch (SQLException ex) {
-                    if (ex.getSQLState().equals("42710") == false
-                            || ex.getMessage().contains("SQLSTATE=42710") == false) {    //skip error if exists
-                        throw ex;
+                    if (!ex.getMessage().contains("already exists")) {
+                        if (ex.getSQLState().equals("42710") == false
+                                || ex.getMessage().contains("SQLSTATE=42710") == false) {    //skip error if exists
+                            throw ex;
+                        }
                     } else {
                         LoggingService.writeLogIfDummy(PRINT_CREATE_TABLE_STAMNETS, "table already exists", "debug");
                     }

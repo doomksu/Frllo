@@ -33,7 +33,7 @@ public class FrlloConverter {
     private final MainWindowController controller;
     private final ConverterStatistics globalStatistics;       //статистика по массиву запросов одного запуска 
     private boolean hasErrors = false;
-    private ConverterStatistics tempStatistics;         //статистика по последнему запросу
+    private ConverterStatistics tempStatistics;             //статистика по последнему запросу
 
     private long avgRequestTime;
     private long fullCheckerTime = 0;

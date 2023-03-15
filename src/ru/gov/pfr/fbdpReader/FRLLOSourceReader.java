@@ -56,7 +56,7 @@ public abstract class FRLLOSourceReader implements Runnable {
         }
         try {
             if (ConnectionService.getInstance().getConnectionFBDP() != null) {
-                if (ConnectionService.getInstance().getConnectionFBDP().isClosed() == false) {
+                if (ConnectionService.getInstance().getConnectionFBDP().isClosed()) {
                     enteryPoint.getMainController().showStatusInfo(FBDP_CONNECTION_IS_CLOSED);
                     errors.add(FBDP_CONNECTION_IS_CLOSED);
                 }

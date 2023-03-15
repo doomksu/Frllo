@@ -145,6 +145,7 @@ public class SettingsService {
         map.put("maxPackagesSize", "100000");
         map.put("BUFFER_SIZE", "10");
         map.put("minimum_lgota_cancel_date", "2020-12-01");
+        map.put("db_type", "db2");
     }
 
     public String getValue(String key) {

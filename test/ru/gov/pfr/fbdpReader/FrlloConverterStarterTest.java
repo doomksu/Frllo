@@ -1,4 +1,3 @@
-
 package ru.gov.pfr.fbdpReader;
 
 import java.util.LinkedHashMap;
@@ -15,26 +14,7 @@ import ru.gov.pfr.service.LoggingService;
  *
  * @author User
  */
-public class FrlloConverterStarter {
-    
-    public FrlloConverterStarter() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+public class FrlloConverterStarterTest {
 
     @Test
     public void testMockConverterStarter() {
@@ -45,6 +25,7 @@ public class FrlloConverterStarter {
             LoggingService.writeLog(ex);
         }
     }
+
     private LinkedHashMap<String, String> getMockMap() {
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
 

@@ -38,7 +38,7 @@ public class EnteryPoint extends Application {
     private SchedulerService schedulerService;
     private TreeSet<String> snilsMap = new TreeSet<>();
     private MainWindowController controller;
-    public static String version = "1.25 12.03.2023";
+    public static String version = "1.26 15.03.2023";
 
     public static void main(String[] args) {
         launch(args);

@@ -30,7 +30,7 @@ public class FRLLOSQLFactory {
             + "SEX,CITIZENSHIP,DOCTYPE,SERIAL,DOCNUMBER,ISSUE,"
             + "REGION,BENEFIT,RECEIVE_DATE,CANCEL_DATE,NSU,MFILE_ID,ISMLOADED) values ";
 
-    public static String deleteOldPersonControlRecord ="delete from <DB_SCHEMA>.FRLLO_PERSONS2 where NPERS = <NPERS>";
+    public static String deleteOldPersonControlRecord = "delete from <DB_SCHEMA>.FRLLO_PERSONS2 where NPERS = <NPERS>";
     public static String insertStatisticsLine = "insert into <DB_SCHEMA>.FRLLO_DAILY_STATISTICS (ID,PERIOD_START,PERIOD_END) ";
 
     public static String insertResultErrorStatment = "insert into <DB_SCHEMA>.FRLLO_RESULTS_ERROR ";
@@ -78,9 +78,18 @@ public class FRLLOSQLFactory {
             String name = SettingsService.getInstance().getValue("frllo_dbname");
             String login = SettingsService.getInstance().getValue("frllo_login");
             String password = SettingsService.getInstance().getValue("frllo_password");
+            String db2Type = SettingsService.getInstance().getValue("db_type");
+            if (db2Type != null && db2Type.equals("mysql")) {
+                LoggingService.writeLog("dbtype is: " + db2Type, "debug");
+                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+                String connectionParams = "jdbc:mysql://" + ip + "/" + name + "?user=" + login + "&password=" + password;
+                LoggingService.writeLog("mySQL connectionParams: " + connectionParams, "debug");
+                connection = DriverManager.getConnection(connectionParams);
+            } else {
+                Class.forName("com.ibm.db2.jcc.DB2Driver").newInstance();
+                connection = DriverManager.getConnection("jdbc:db2://" + ip + ":" + port + "/" + name, login, password);
+            }
 
-            Class.forName("com.ibm.db2.jcc.DB2Driver").newInstance();
-            connection = DriverManager.getConnection("jdbc:db2://" + ip + ":" + port + "/" + name, login, password);
             if (connection != null) {
                 if (connection.isClosed() == false) {
                     return connection;
@@ -100,9 +109,17 @@ public class FRLLOSQLFactory {
             String name = SettingsService.getInstance().getValue("fbdp_dbname");
             String login = SettingsService.getInstance().getValue("fbdp_login");
             String password = SettingsService.getInstance().getValue("fbdp_password");
-
-            Class.forName("com.ibm.db2.jcc.DB2Driver").newInstance();
-            connection = DriverManager.getConnection("jdbc:db2://" + ip + ":" + port + "/" + name, login, password);
+            String db2Type = SettingsService.getInstance().getValue("db_type");
+            if (db2Type != null && db2Type.equals("mysql")) {
+                LoggingService.writeLog("dbtype is: " + db2Type, "debug");
+                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+                String connectionParams = "jdbc:mysql://" + ip + "/" + name + "?user=" + login + "&password=" + password;
+                LoggingService.writeLog("mySQL connectionParams: " + connectionParams, "debug");
+                connection = DriverManager.getConnection(connectionParams);
+            } else {
+                Class.forName("com.ibm.db2.jcc.DB2Driver").newInstance();
+                connection = DriverManager.getConnection("jdbc:db2://" + ip + ":" + port + "/" + name, login, password);
+            }
             if (connection != null) {
                 if (connection.isClosed() == false) {
                     return connection;
@@ -164,7 +181,7 @@ public class FRLLOSQLFactory {
                 + "     NPERS VARCHAR (14) NOT NULL,\n"
                 + "	CONSTRAINT CC1615539527000 PRIMARY KEY (GUID, ERROR_CASE, NPERS)  \n"
                 + "	)");
-        
+
         sql.add("CREATE TABLE <DB_SCHEMA>.FRLLO_MRESULTS_ERROR (\n"
                 + "	GUID VARCHAR (40) NOT NULL ,\n"
                 + "	ERROR_CASE INTEGER NOT NULL ,\n"
