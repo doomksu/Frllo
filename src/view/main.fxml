@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="653.0" prefWidth="1069.0" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.gov.pfr.controller.MainWindowController">
+<HBox prefHeight="667.0" prefWidth="1069.0" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.gov.pfr.controller.MainWindowController">
     <children>
-        <VBox HBox.hgrow="ALWAYS">
+        <VBox prefHeight="724.0" prefWidth="1069.0" HBox.hgrow="ALWAYS">
             <children>
                 <HBox alignment="CENTER_LEFT" minHeight="50.0" prefHeight="50.0" spacing="20.0" VBox.vgrow="ALWAYS">
                     <children>
@@ -38,7 +38,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                     </padding>
                 </HBox>
-                <TabPane maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="1077.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <TabPane maxWidth="1.7976931348623157E308" prefHeight="408.0" prefWidth="1069.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                     <tabs>
                         <Tab text="Конвертация">
                             <content>
@@ -129,196 +129,204 @@
                         </Tab>
                         <Tab text="Соединение с  базами данных">
                             <content>
-                                <AnchorPane>
-                                    <children>
-                                        <VBox AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                            <children>
-                                                <VBox spacing="10.0">
-                                                    <children>
-                                                        <HBox VBox.vgrow="ALWAYS">
-                                                            <children>
-                                                                <VBox HBox.hgrow="ALWAYS">
-                                                                    <children>
-                                                                        <Label text="Параметры соединения с БД ФБДП">
-                                                                            <padding>
-                                                                                <Insets left="10.0" />
-                                                                            </padding>
-                                                                            <font>
-                                                                                <Font name="System Bold" size="18.0" />
-                                                                            </font>
-                                                                        </Label>
-                                                                        <GridPane vgap="5.0" VBox.vgrow="ALWAYS">
-                                                                            <columnConstraints>
-                                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="247.0" />
-                                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="455.0" />
-                                                                            </columnConstraints>
-                                                                            <rowConstraints>
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                            </rowConstraints>
-                                                                            <children>
-                                                                                <Label text="Сервер БД" />
-                                                                                <TextField fx:id="dbFBDPHostField" GridPane.columnIndex="1" />
-                                                                                <Label text="Имя БД" GridPane.rowIndex="1" />
-                                                                                <TextField fx:id="dbFBDPNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                                <Label text="Порт" GridPane.rowIndex="2" />
-                                                                                <TextField fx:id="dbFBDPPortField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                                <Label text="Логин" GridPane.rowIndex="3" />
-                                                                                <TextField fx:id="dbFBDPLoginField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                                <Label text="Пароль" GridPane.rowIndex="4" />
-                                                                                <TextField fx:id="dbFBDPPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                                <Label text="Имя схемы в БД" GridPane.rowIndex="5" />
-                                                                                <TextField fx:id="dbFBDPSchemaField" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                            </children>
-                                                                            <padding>
-                                                                                <Insets left="10.0" right="5.0" top="10.0" />
-                                                                            </padding>
-                                                                        </GridPane>
-                                                                    </children>
-                                                                </VBox>
-                                                                <VBox HBox.hgrow="ALWAYS">
-                                                                    <children>
-                                                                        <Label layoutX="10.0" layoutY="10.0" text="Параметры соединения с таблицами ФРЛЛО">
-                                                                            <font>
-                                                                                <Font name="System Bold" size="18.0" />
-                                                                            </font>
-                                                                            <padding>
-                                                                                <Insets left="10.0" />
-                                                                            </padding>
-                                                                        </Label>
-                                                                        <GridPane layoutX="10.0" layoutY="10.0" prefHeight="190.0" prefWidth="895.0" vgap="5.0" VBox.vgrow="ALWAYS">
-                                                                            <children>
-                                                                                <Label text="Сервер БД" />
-                                                                                <TextField fx:id="frlloHostField" GridPane.columnIndex="1" />
-                                                                                <Label text="Имя БД" GridPane.rowIndex="1" />
-                                                                                <TextField fx:id="frlloNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                                <Label text="Порт" GridPane.rowIndex="2" />
-                                                                                <TextField fx:id="frlloPortField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                                <Label text="Логин" GridPane.rowIndex="3" />
-                                                                                <TextField fx:id="frlloLoginField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                                <Label text="Пароль" GridPane.rowIndex="4" />
-                                                                                <TextField fx:id="frlloPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                                <Label text="Имя схемы в БД" GridPane.rowIndex="5" />
-                                                                                <TextField fx:id="frlloSchemaField" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                            </children>
-                                                                            <columnConstraints>
-                                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="354.0" minWidth="10.0" prefWidth="217.0" />
-                                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="940.0" minWidth="10.0" prefWidth="387.0" />
-                                                                            </columnConstraints>
-                                                                            <padding>
-                                                                                <Insets left="10.0" right="5.0" top="10.0" />
-                                                                            </padding>
-                                                                            <rowConstraints>
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                                            </rowConstraints>
-                                                                        </GridPane>
-                                                                    </children>
-                                                                </VBox>
-                                                            </children>
-                                                        </HBox>
-                                                        <Button mnemonicParsing="false" onAction="#reconnectFBDPButtonAction" prefHeight="25.0" prefWidth="203.0" text="Проверка соединения" />
-                                                    </children>
-                                                </VBox>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </AnchorPane>
+                                  <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                      <children>
+                                            <HBox VBox.vgrow="ALWAYS">
+                                                <children>
+                                                    <VBox HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <Label text="Параметры соединения с БД ФБДП">
+                                                                <padding>
+                                                                    <Insets left="10.0" />
+                                                                </padding>
+                                                                <font>
+                                                                    <Font name="System Bold" size="18.0" />
+                                                                </font>
+                                                            </Label>
+                                                            <GridPane vgap="5.0" VBox.vgrow="ALWAYS">
+                                                                <columnConstraints>
+                                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="247.0" />
+                                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="455.0" />
+                                                                </columnConstraints>
+                                                                <rowConstraints>
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                </rowConstraints>
+                                                                <children>
+                                                                    <Label text="Сервер БД" />
+                                                                    <TextField fx:id="dbFBDPHostField" GridPane.columnIndex="1" />
+                                                                    <Label text="Имя БД" GridPane.rowIndex="1" />
+                                                                    <TextField fx:id="dbFBDPNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                    <Label text="Порт" GridPane.rowIndex="2" />
+                                                                    <TextField fx:id="dbFBDPPortField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                    <Label text="Логин" GridPane.rowIndex="3" />
+                                                                    <TextField fx:id="dbFBDPLoginField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                    <Label text="Пароль" GridPane.rowIndex="4" />
+                                                                    <TextField fx:id="dbFBDPPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                    <Label text="Имя схемы в БД" GridPane.rowIndex="5" />
+                                                                    <TextField fx:id="dbFBDPSchemaField" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                                </children>
+                                                                <padding>
+                                                                    <Insets left="10.0" right="5.0" top="10.0" />
+                                                                </padding>
+                                                            </GridPane>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <Label layoutX="10.0" layoutY="10.0" text="Параметры соединения с таблицами ФРЛЛО">
+                                                                <font>
+                                                                    <Font name="System Bold" size="18.0" />
+                                                                </font>
+                                                                <padding>
+                                                                    <Insets left="10.0" />
+                                                                </padding>
+                                                            </Label>
+                                                            <GridPane layoutX="10.0" layoutY="10.0" prefHeight="190.0" prefWidth="895.0" vgap="5.0" VBox.vgrow="ALWAYS">
+                                                                <children>
+                                                                    <Label text="Сервер БД" />
+                                                                    <TextField fx:id="frlloHostField" GridPane.columnIndex="1" />
+                                                                    <Label text="Имя БД" GridPane.rowIndex="1" />
+                                                                    <TextField fx:id="frlloNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                    <Label text="Порт" GridPane.rowIndex="2" />
+                                                                    <TextField fx:id="frlloPortField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                    <Label text="Логин" GridPane.rowIndex="3" />
+                                                                    <TextField fx:id="frlloLoginField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                    <Label text="Пароль" GridPane.rowIndex="4" />
+                                                                    <TextField fx:id="frlloPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                    <Label text="Имя схемы в БД" GridPane.rowIndex="5" />
+                                                                    <TextField fx:id="frlloSchemaField" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                                </children>
+                                                                <columnConstraints>
+                                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="354.0" minWidth="10.0" prefWidth="217.0" />
+                                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="940.0" minWidth="10.0" prefWidth="387.0" />
+                                                                </columnConstraints>
+                                                                <padding>
+                                                                    <Insets left="10.0" right="5.0" top="10.0" />
+                                                                </padding>
+                                                                <rowConstraints>
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                </rowConstraints>
+                                                            </GridPane>
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </HBox>
+                                            <Button mnemonicParsing="false" onAction="#reconnectFBDPButtonAction" prefHeight="25.0" prefWidth="203.0" text="Проверка соединения" />
+                                      </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                                  </VBox>
                             </content>
                         </Tab>
                         <Tab text="Настройки приложения">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <children>
-                                        <VBox prefHeight="524.0" prefWidth="879.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                            <children>
-                                                <GridPane hgap="5.0" prefHeight="210.0" prefWidth="837.0" vgap="5.0" VBox.vgrow="SOMETIMES">
-                                                    <columnConstraints>
-                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="564.0" minWidth="10.0" prefWidth="478.0" />
-                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.0" minWidth="10.0" prefWidth="459.0" />
-                                                    </columnConstraints>
-                                                    <rowConstraints>
-                                                        <RowConstraints maxHeight="70.0" minHeight="40.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                    </rowConstraints>
-                                                    <children>
-                                          <VBox spacing="10.0">
+                                  <VBox prefHeight="524.0" prefWidth="879.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                      <children>
+                              <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
+                                <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <VBox alignment="CENTER">
                                              <children>
-                                                <HBox alignment="CENTER_LEFT" spacing="20.0" />
-                                                <HBox alignment="CENTER_LEFT" spacing="20.0" />
-                                                <GridPane vgap="3.0">
-                                                  <columnConstraints>
-                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="339.0" />
-                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="204.0" />
-                                                  </columnConstraints>
-                                                  <rowConstraints>
-                                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                                  </rowConstraints>
+                                                <HBox>
                                                    <children>
-                                                                    <Label maxWidth="1.7976931348623157E308" text="Время запуска скриптов планировщика (час &quot;ЧЧ:ММ&quot;)" />
-                                                                    <TextField fx:id="schedeulerStartTime" maxWidth="70.0" prefHeight="25.0" prefWidth="70.0" GridPane.columnIndex="1" />
-                                                                    <Label maxWidth="1.7976931348623157E308" text="Интервал ожидания проверок планировщика (минуты)" GridPane.rowIndex="1" />
-                                                                    <TextField fx:id="schedulerSleepInterval" maxWidth="70.0" prefHeight="25.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                   </children>
-                                                </GridPane>
-                                             </children>
-                                          </VBox>
-                                                        <CheckBox fx:id="foreignBirthDocumentCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Считать ошибки в серии свидетельств о рождении как свидетельства иных стран" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                        <CheckBox fx:id="saveConvertedInformationCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Сохранять информацию о выгруженных получателях в БД ФРЛЛО" wrapText="true" GridPane.rowIndex="2" />
-                                                        <CheckBox fx:id="ussrPasportAsDifferentCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Считать паспорт СССР как иные документы" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                        <Button mnemonicParsing="false" onAction="#saveSettingsButtonAction" text="Сохранить" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <TextField fx:id="outConvertedFolderPath" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <CheckBox fx:id="autoStartSchedulerCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Запускать планировщик при старте программы" wrapText="true" GridPane.rowIndex="3" />
-                                          <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1">
-                                             <children>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="200.0" spacing="15.0">
-                                                   <children>
-                                                      <Label text="Максимальное количество записей в пачке" />
-                                                      <TextField fx:id="maxPackagesSize" />
+                                                                  <GridPane alignment="CENTER" hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="8.0" HBox.hgrow="ALWAYS">
+                                                                      <columnConstraints>
+                                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="564.0" minWidth="10.0" prefWidth="478.0" />
+                                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.0" minWidth="10.0" prefWidth="459.0" />
+                                                                      </columnConstraints>
+                                                                      <rowConstraints>
+                                                                          <RowConstraints maxHeight="30.0" minHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                                                          <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                          <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                                          <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                      </rowConstraints>
+                                                                      <children>
+                                                                          <CheckBox fx:id="foreignBirthDocumentCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Считать ошибки в серии свидетельств о рождении как свидетельства иных стран" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                          <CheckBox fx:id="saveConvertedInformationCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Сохранять информацию о выгруженных получателях в БД ФРЛЛО" wrapText="true" GridPane.rowIndex="3" />
+                                                                          <CheckBox fx:id="ussrPasportAsDifferentCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Считать паспорт СССР как иные документы" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                            <CheckBox fx:id="autoStartSchedulerCheckBox" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Запускать планировщик при старте программы" wrapText="true" GridPane.rowIndex="4" />
+                                                            <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="200.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label text="Максимальное количество записей в пачке" />
+                                                                        <TextField fx:id="maxPackagesSize" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                               <children>
+                                                                  <Label text="Путь к папке выгрузки" GridPane.rowIndex="1" />
+                                                                  <TextField fx:id="outConvertedFolderPath" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="329.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.rowIndex="5">
+                                                               <children>
+                                                                  <DatePicker fx:id="lgotaMinEndDate" GridPane.rowIndex="4" />
+                                                                  <Label text="Минимальная дата закрытия" GridPane.rowIndex="4" />
+                                                               </children>
+                                                            </HBox>
+                                                            <CheckBox fx:id="doWriteAlreadySendedData" mnemonicParsing="false" text="Формировать данные при повторах" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <HBox spacing="5.0">
+                                                               <children>
+                                                                                <Label maxWidth="1.7976931348623157E308" text="Интервал ожидания проверок планировщика (минуты)" GridPane.rowIndex="1" />
+                                                                                <TextField fx:id="schedulerSleepInterval" maxWidth="70.0" prefHeight="25.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0" GridPane.rowIndex="1">
+                                                               <children>
+                                                                                <Label maxWidth="1.7976931348623157E308" text="Время запуска скриптов планировщика (час &quot;ЧЧ:ММ&quot;)" />
+                                                                                <TextField fx:id="schedeulerStartTime" maxWidth="70.0" prefHeight="25.0" prefWidth="70.0" GridPane.columnIndex="1" />
+                                                               </children>
+                                                            </HBox>
+                                                                          <HBox alignment="CENTER_LEFT" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                              <children>
+                                                                                  <Label text="Формировать " />
+                                                                                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                                                      <children>
+                                                                                          <RadioButton fx:id="rb_writeAll" mnemonicParsing="false" text="Все" />
+                                                                                          <RadioButton fx:id="rb_writeOpen" mnemonicParsing="false" text="Открытые" />
+                                                                                          <RadioButton fx:id="rb_writeClosed" mnemonicParsing="false" text="Закрытые" />
+                                                                                      </children>
+                                                                                  </HBox>
+                                                                              </children>
+                                                                          </HBox>
+                                                            <CheckBox fx:id="allowRecheckDateWithStatistics" mnemonicParsing="false" text="Разрешить повтор выгрузки за даты" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                      </children>
+                                                         <padding>
+                                                            <Insets left="10.0" right="5.0" top="10.0" />
+                                                         </padding>
+                                                                  </GridPane>
                                                    </children>
                                                 </HBox>
-                                                              <HBox alignment="CENTER_LEFT" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="200.0" spacing="20.0">
-                                                                  <children>
-                                                                      <Label text="Формировать " />
-                                                                      <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                                                          <children>
-                                                                              <RadioButton fx:id="rb_writeAll" mnemonicParsing="false" text="Все" />
-                                                                              <RadioButton fx:id="rb_writeOpen" mnemonicParsing="false" text="Открытые" />
-                                                                              <RadioButton fx:id="rb_writeClosed" mnemonicParsing="false" text="Закрытые" />
-                                                                          </children>
-                                                                      </HBox>
-                                                                  </children>
-                                                              </HBox>
                                              </children>
                                           </VBox>
-                                          <Label text="Путь к папке выгрузки" GridPane.rowIndex="1" />
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.rowIndex="4">
-                                             <children>
-                                                <DatePicker fx:id="lgotaMinEndDate" GridPane.rowIndex="4" />
-                                                <Label text="Минимальная дата закрытия" GridPane.rowIndex="4" />
-                                             </children>
-                                          </HBox>
-                                                    </children>
-                                                    <padding>
-                                                        <Insets left="10.0" right="5.0" top="10.0" />
-                                                    </padding>
-                                                </GridPane>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </ScrollPane>
+                                            <Button mnemonicParsing="false" onAction="#saveSettingsButtonAction" text="Сохранить" />
+                                      </children>
+                           <padding>
+                              <Insets left="3.0" />
+                           </padding>
+                                  </VBox>
                             </content>
                         </Tab>
                         <Tab text="Действия с БД ФРЛЛО">
@@ -365,7 +373,7 @@
                                                                 <Button mnemonicParsing="false" onAction="#handle_writeStatistics" prefHeight="35.0" prefWidth="300.0" text="Сформировать статистику по переданным данным" wrapText="true" />
                                                                 <Button mnemonicParsing="false" onAction="#handle_writeFBDPerrors" prefHeight="35.0" prefWidth="300.0" text="Сформировать список ошибок записей ФБДП" wrapText="true" GridPane.rowIndex="1" />
                                                                 <Button mnemonicParsing="false" onAction="#handle_writeFRLLOerrors" prefHeight="35.0" prefWidth="300.0" text="Сформировать список ошибок загрузки" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
-                                                <Button mnemonicParsing="false" onAction="#handle_checkErrorTables" prefHeight="35.0" prefWidth="300.0" text="Проверить таблицы ошибок " textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                                                <Button mnemonicParsing="false" onAction="#handle_checkErrorTables" prefHeight="35.0" prefWidth="300.0" text="Очистить таблицы ошибок " textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
                                                 <Button mnemonicParsing="false" onAction="#handle_startChangesChecker" prefHeight="35.0" prefWidth="300.0" text="Запустить полную проверку изменений " GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                              </children>
                                           </GridPane>
@@ -417,7 +425,7 @@
                   </Tab>
                     </tabs>
                 </TabPane>
-                <VBox maxWidth="1.7976931348623157E308" prefHeight="416.0" prefWidth="948.0" VBox.vgrow="ALWAYS">
+                <VBox maxWidth="1.7976931348623157E308" prefHeight="350.0" prefWidth="948.0" VBox.vgrow="ALWAYS">
                     <children>
                         <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
                             <children>

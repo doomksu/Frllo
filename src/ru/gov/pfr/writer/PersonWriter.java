@@ -49,7 +49,6 @@ public class PersonWriter {
         String folderPath = SettingsService.getInstance().getValue("outConvertedFolderPath");
         File folder = new File(folderPath);
         folder.mkdir();
-
         try {
             int val = Integer.parseInt(SettingsService.getInstance().getValue("maxPackagesSize"));
             PACKAGE_LIMIT = val;

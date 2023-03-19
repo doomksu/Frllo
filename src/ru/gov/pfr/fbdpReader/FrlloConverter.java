@@ -199,7 +199,11 @@ public class FrlloConverter {
                 avgRequestTime = (endTime - startTime);
                 fullCheckerTime += avgRequestTime / 1000;
             }
-            if (isNotAllreadyWrited) {
+            boolean isAllowedToRewrite = Boolean.valueOf(SettingsService.getInstance().getValue("doWriteAlreadySendedData"));
+            if (isNotAllreadyWrited || (isNotAllreadyWrited == false && isAllowedToRewrite)) {
+                if(isNotAllreadyWrited == false && isAllowedToRewrite){
+                    LoggingService.writeLog("person doesnt change but settings allowed to rewrite", "debug");
+                }
                 try {
                     makeDBUpdatesOnWritePerson(person);
                     writer.write(person);

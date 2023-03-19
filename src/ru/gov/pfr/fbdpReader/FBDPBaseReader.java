@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import ru.gov.pfr.service.ConnectionService;
 import ru.gov.pfr.service.LoggingService;
+import ru.gov.pfr.service.SettingsService;
 
 public class FBDPBaseReader extends FRLLOSourceReader implements Runnable {
 
@@ -37,10 +38,17 @@ public class FBDPBaseReader extends FRLLOSourceReader implements Runnable {
     @Override
     protected void read() throws Exception {
         try {
-            if (ConnectionService.getInstance().hasStatisticsMaxIDForDate(dayToValue)) {
-                enteryPoint.getMainController().showStatiticsExistsDialog(dayToValue, this);
-            } else {
+            boolean isStatisticsExistsForDate = ConnectionService.getInstance().hasStatisticsMaxIDForDate(dayToValue);
+            boolean isAllowedRereadForDate = Boolean.valueOf(SettingsService.getInstance().getValue("allowRecheckDateWithStatistics"));
+            if (!isStatisticsExistsForDate || (isStatisticsExistsForDate && isAllowedRereadForDate)) {
+                if (isStatisticsExistsForDate && isAllowedRereadForDate) {
+                    String mes = "Статистика на даты: " + dayFromValue + " - " + dayToValue + " уже записана, но выгружаем принудительно";
+                    LoggingService.writeLog(mes, "debug");
+                    enteryPoint.getMainController().showStatusInfo(mes);
+                }
                 proceedWithRead();
+            } else {
+                enteryPoint.getMainController().showStatiticsExistsDialog(dayToValue, this);
             }
         } catch (ShowMessageAndWaitException ex) {
             LoggingService.writeLog("Cant check statistics: " + ex.getMessage(), "error");

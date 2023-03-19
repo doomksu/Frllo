@@ -28,7 +28,6 @@ public class SettingsService {
         BOOT_PATH = folder.getAbsolutePath();
         SQL_PATH = BOOT_PATH + "\\sql";
         DUMMY_FOLDERPATH = BOOT_PATH + "\\" + "DUMMY";
-
         System.out.println(">> start SettingsService");
         map = new TreeMap<>();
         readSettings();
@@ -146,6 +145,8 @@ public class SettingsService {
         map.put("BUFFER_SIZE", "10");
         map.put("minimum_lgota_cancel_date", "2020-12-01");
         map.put("db_type", "db2");
+        map.put("doWriteAlreadySendedData", "false");
+        map.put("allowRecheckDateWithStatistics", "false");
     }
 
     public String getValue(String key) {

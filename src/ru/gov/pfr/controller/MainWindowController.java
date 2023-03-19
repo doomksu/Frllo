@@ -63,7 +63,12 @@ public class MainWindowController extends CommonController {
     @FXML
     private TextField filesToDeletePersonTextField, sniltToDeleteTextField;
     @FXML
-    private CheckBox foreignBirthDocumentCheckBox, saveConvertedInformationCheckBox, ussrPasportAsDifferentCheckBox, autoStartSchedulerCheckBox;
+    private CheckBox foreignBirthDocumentCheckBox,
+            saveConvertedInformationCheckBox,
+            ussrPasportAsDifferentCheckBox,
+            autoStartSchedulerCheckBox,
+            doWriteAlreadySendedData,
+            allowRecheckDateWithStatistics;
     @FXML
     private ToggleGroup group;
     @FXML
@@ -97,6 +102,8 @@ public class MainWindowController extends CommonController {
         boolean ussrPassport = Boolean.valueOf(SettingsService.getInstance().getValue("ussrPasportAsDifferent"));
         boolean autoStartScheduler = Boolean.valueOf(SettingsService.getInstance().getValue("autoStartScheduler"));
         boolean doSave = Boolean.valueOf(SettingsService.getInstance().getValue("saveConvertedInformation"));
+        boolean writeAlreadySendedData = Boolean.valueOf(SettingsService.getInstance().getValue("doWriteAlreadySendedData"));
+        boolean isAllowedRecheckDateWithStatistics = Boolean.valueOf(SettingsService.getInstance().getValue("allowRecheckDateWithStatistics"));
 
         pathToResults.setText(SettingsService.getInstance().getValue("resultsPath"));
         pathToConverted.setText(SettingsService.getInstance().getValue("loadedPath"));
@@ -117,6 +124,8 @@ public class MainWindowController extends CommonController {
         saveConvertedInformationCheckBox.setSelected(doSave);
         ussrPasportAsDifferentCheckBox.setSelected(ussrPassport);
         autoStartSchedulerCheckBox.setSelected(autoStartScheduler);
+        doWriteAlreadySendedData.setSelected(writeAlreadySendedData);
+        allowRecheckDateWithStatistics.setSelected(isAllowedRecheckDateWithStatistics);
         refreshServerPanes();
         messagesStack = new AutoThrowStack(50);
         File tempFile = new File("");
@@ -252,11 +261,16 @@ public class MainWindowController extends CommonController {
         String ussrPasportAsDifferent = ussrPasportAsDifferentCheckBox.isSelected() ? "true" : "false";
         String saveConvertedInformation = saveConvertedInformationCheckBox.isSelected() ? "true" : "false";
         String autoStartScheduler = autoStartSchedulerCheckBox.isSelected() ? "true" : "false";
+        String writeAlreadySendedData = doWriteAlreadySendedData.isSelected() ? "true" : "false";
+        String isAllowRecheckDateWithStatistics = allowRecheckDateWithStatistics.isSelected() ? "true" : "false";
 
         SettingsService.getInstance().setValueFromString("foreignBirthDocument:" + foreignBirthDocument);
         SettingsService.getInstance().setValueFromString("ussrPasportAsDifferent:" + ussrPasportAsDifferent);
         SettingsService.getInstance().setValueFromString("saveConvertedInformation:" + saveConvertedInformation);
         SettingsService.getInstance().setValueFromString("autoStartScheduler:" + autoStartScheduler);
+        SettingsService.getInstance().setValueFromString("doWriteAlreadySendedData:" + writeAlreadySendedData);
+        SettingsService.getInstance().setValueFromString("allowRecheckDateWithStatistics:" + isAllowRecheckDateWithStatistics);
+        
         if (SchedulerService.isStartTimePatternValid(schedeulerStartTime.getText())) {
             SettingsService.getInstance().setValueFromString("schedulerStartTime:" + schedeulerStartTime.getText());
         }
